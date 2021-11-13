@@ -3,20 +3,10 @@ import React, { useState, useEffect } from 'react'
 import Schema from './componenets/Schema/Schema'
 import Inputs from './componenets/Inputs'
 import Output from './componenets/Output'
+import a from './draftdata'
 
 function App() {
-    const [schema, setSchema] = useState({
-        id: 'uuid',
-        title: 'string',
-        subtitle: 'string',
-        traveller: 'string',
-        description: 'string',
-        day: 'string',
-        time: { hour: 'number', min: 'number' },
-        room: 'number',
-        thumbnail: 'string',
-        pisc: ['string'],
-    })
+    const [schema, setSchema] = useState(a)
     const [data, setData] = useState({})
 
     useEffect(() => {
