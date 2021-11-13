@@ -1,4 +1,4 @@
-import getType from '../../helpers/getType'
+import replaceAt from '../../helpers/replaceAt'
 import React, { useState, useEffect } from 'react'
 import SchemaInput from './ShemaInput'
 import { produce } from 'immer'
@@ -7,38 +7,34 @@ const TypeSelect = ({ field, label, aboveSchema, setAboveSchema, index }) => {
     const [currentValue, setCurrentValue] = useState(field)
 
 
-    function replaceAt(array, index, value) {
-        console.log(array)
-        const ret = array.slice(0)
-        ret[index] = value
-        return ret
-    }
+  
 
 
     const childrenSetter = (state) => setCurrentValue({...currentValue, children: state})
 
     useEffect(() => {
-        if (currentValue.type !== 'array' || currentValue.type !== 'object') {
+        //WHY DID I DO THIS???
+        // if (currentValue.type !== 'array' || currentValue.type !== 'object') {
             setAboveSchema(replaceAt(aboveSchema, index, currentValue))
-        }
+        // }
     }, [currentValue])
 
     const changeType = e => {
         if (e.target.value === 'array') {
             setCurrentValue({
-                ...currentValue,
+                ...field,
                 type: e.target.value,
                 children: [{ type: 'string' }],
             })
         } else if (e.target.value === 'object') {
             setCurrentValue({
-                ...currentValue,
+                ...field,
                 type: e.target.value,
-                children: [{ key: 'a', type: 'string' }],
+                children: [{ key: 'YOUR_KEY', type: 'string' }],
             })
         } else {
               setCurrentValue({
-                  ...currentValue,
+                  ...field,
                   type: e.target.value,
               })
         }
