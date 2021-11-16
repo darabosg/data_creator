@@ -1,7 +1,7 @@
 import './App.css'
 import React, { useState, useEffect } from 'react'
 import Schema from './componenets/Schema/Schema'
-import Inputs from './componenets/Inputs'
+import Inputs from './componenets/Inputs/Inputs'
 import Output from './componenets/Output'
 import a from './draftdata'
 

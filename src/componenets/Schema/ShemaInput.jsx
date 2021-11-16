@@ -1,7 +1,7 @@
 import './SchemaInput.css'
 import TypeSelect from './TypeSelect'
 import replaceAt from '../../helpers/replaceAt'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 const SchemaInput = ({ schema, setSchema }) => {
 
@@ -12,13 +12,19 @@ const SchemaInput = ({ schema, setSchema }) => {
     }
 
     const addField = () => {
-setSchema([...schema,{key:'YOUR_KEY',type:'string'}])
+setSchema([...schema,{key:'YOUR_KEY',type:'string',value:''}])
+    }
+
+    const deleteField = (index) => {
+        console.log(index);
+setSchema(schema.filter((_, i) => i !== index))
     }
 
     return (
         <div className='schema-object'>
             {schema.map((field, i) => (
-                <div className='schema-input' key={i}>
+                <div className='schema-input' key={field+i}>
+                    <button onClick={()=>deleteField(i)}>---</button>
                     <label htmlFor='key'>Key: </label>
                     <input
                         type='text'

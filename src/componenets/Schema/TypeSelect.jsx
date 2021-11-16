@@ -1,42 +1,61 @@
 import replaceAt from '../../helpers/replaceAt'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import SchemaInput from './ShemaInput'
-import { produce } from 'immer'
+import { v4 as uuidv4 } from 'uuid'
 
 const TypeSelect = ({ field, label, aboveSchema, setAboveSchema, index }) => {
-    const [currentValue, setCurrentValue] = useState(field)
 
-
-  
-
-
-    const childrenSetter = (state) => setCurrentValue({...currentValue, children: state})
-
-    useEffect(() => {
-        //WHY DID I DO THIS???
-        // if (currentValue.type !== 'array' || currentValue.type !== 'object') {
-            setAboveSchema(replaceAt(aboveSchema, index, currentValue))
-        // }
-    }, [currentValue])
+    const childrenSetter = (state) => setAboveSchema(replaceAt(aboveSchema, index, {...field, children: state}))
 
     const changeType = e => {
         if (e.target.value === 'array') {
-            setCurrentValue({
-                ...field,
-                type: e.target.value,
-                children: [{ type: 'string' }],
-            })
+            setAboveSchema(
+                replaceAt(aboveSchema, index, {
+                    ...field,
+                    type: e.target.value,
+                    children: [{ type: 'string', value: '' }],
+                })
+            )
         } else if (e.target.value === 'object') {
-            setCurrentValue({
-                ...field,
-                type: e.target.value,
-                children: [{ key: 'YOUR_KEY', type: 'string' }],
-            })
+            setAboveSchema(
+                replaceAt(aboveSchema, index, {
+                    ...field,
+                    type: e.target.value,
+                    children: [{ key: 'YOUR_KEY', type: 'string', value: '' }],
+                })
+            )
+        } else if (e.target.value === 'string') {
+            setAboveSchema(
+                replaceAt(aboveSchema, index, {
+                    ...field,
+                    type: e.target.value,
+                    value: '',
+                })
+            )
+        } else if (e.target.value === 'number') {
+            setAboveSchema(
+                replaceAt(aboveSchema, index, {
+                    ...field,
+                    type: e.target.value,
+                    value: Number,
+                })
+            )
+        } else if (e.target.value === 'boolean') {
+            setAboveSchema(
+                replaceAt(aboveSchema, index, {
+                    ...field,
+                    type: e.target.value,
+                    value: false,
+                })
+            )
         } else {
-              setCurrentValue({
-                  ...field,
-                  type: e.target.value,
-              })
+            setAboveSchema(
+                replaceAt(aboveSchema, index, {
+                    ...field,
+                    type: e.target.value,
+                    value: uuidv4(),
+                })
+            )
         }
     }
 
@@ -47,7 +66,7 @@ const TypeSelect = ({ field, label, aboveSchema, setAboveSchema, index }) => {
                 type='text'
                 id='type'
                 name='type'
-                value={currentValue.type}
+                value={field.type}
                 onChange={changeType}
             >
                 <option value='string'>String</option>
@@ -57,18 +76,18 @@ const TypeSelect = ({ field, label, aboveSchema, setAboveSchema, index }) => {
                 <option value='object'>Object</option>
                 <option value='uuid'>Uuid</option>
             </select>
-            {currentValue.type === 'array' && (
+            {field.type === 'array' && (
                 <TypeSelect
                     index={0}
                     setAboveSchema={childrenSetter}
-                    aboveSchema={currentValue.children}
-                    field={currentValue.children[0]}
+                    aboveSchema={field.children}
+                    field={field.children[0]}
                     label='Of: '
                 />
             )}
-            {currentValue.type === 'object' && (
+            {field.type === 'object' && (
                 <SchemaInput
-                    schema={currentValue.children}
+                    schema={field.children}
                     setSchema={childrenSetter}
                 />
             )}
