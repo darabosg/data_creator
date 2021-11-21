@@ -1,11 +1,20 @@
 import replaceAt from '../../helpers/replaceAt'
 import React from 'react'
 import SchemaInput from './ShemaInput'
-import { v4 as uuidv4 } from 'uuid'
 
-const TypeSelect = ({ field, label, aboveSchema, setAboveSchema, index }) => {
-
-    const childrenSetter = (state) => setAboveSchema(replaceAt(aboveSchema, index, {...field, children: state}))
+const TypeSelect = ({
+    field,
+    label,
+    aboveSchema,
+    setAboveSchema,
+    index,
+    objectDepth,
+    arrayDepth,
+}) => {
+    const childrenSetter = state =>
+        setAboveSchema(
+            replaceAt(aboveSchema, index, { ...field, children: state })
+        )
 
     const changeType = e => {
         if (e.target.value === 'array') {
@@ -13,7 +22,7 @@ const TypeSelect = ({ field, label, aboveSchema, setAboveSchema, index }) => {
                 replaceAt(aboveSchema, index, {
                     ...field,
                     type: e.target.value,
-                    children: [{ type: 'string', value: '' }],
+                    children: [{ key: 0, type: 'string' }],
                 })
             )
         } else if (e.target.value === 'object') {
@@ -21,31 +30,7 @@ const TypeSelect = ({ field, label, aboveSchema, setAboveSchema, index }) => {
                 replaceAt(aboveSchema, index, {
                     ...field,
                     type: e.target.value,
-                    children: [{ key: 'YOUR_KEY', type: 'string', value: '' }],
-                })
-            )
-        } else if (e.target.value === 'string') {
-            setAboveSchema(
-                replaceAt(aboveSchema, index, {
-                    ...field,
-                    type: e.target.value,
-                    value: '',
-                })
-            )
-        } else if (e.target.value === 'number') {
-            setAboveSchema(
-                replaceAt(aboveSchema, index, {
-                    ...field,
-                    type: e.target.value,
-                    value: Number,
-                })
-            )
-        } else if (e.target.value === 'boolean') {
-            setAboveSchema(
-                replaceAt(aboveSchema, index, {
-                    ...field,
-                    type: e.target.value,
-                    value: false,
+                    children: [{ key: 'YOUR_KEY', type: 'string' }],
                 })
             )
         } else {
@@ -53,7 +38,6 @@ const TypeSelect = ({ field, label, aboveSchema, setAboveSchema, index }) => {
                 replaceAt(aboveSchema, index, {
                     ...field,
                     type: e.target.value,
-                    value: uuidv4(),
                 })
             )
         }
@@ -72,12 +56,15 @@ const TypeSelect = ({ field, label, aboveSchema, setAboveSchema, index }) => {
                 <option value='string'>String</option>
                 <option value='number'>Number</option>
                 <option value='boolean'>Boolean</option>
-                <option value='array'>Array</option>
-                <option value='object'>Object</option>
+                {arrayDepth > 0 && <option value='array'>Array</option>}
+                {objectDepth > 0 && <option value='object'>Object</option>}
+
                 <option value='uuid'>Uuid</option>
             </select>
             {field.type === 'array' && (
                 <TypeSelect
+                    arrayDepth={arrayDepth - 1}
+                    objectDepth={objectDepth}
                     index={0}
                     setAboveSchema={childrenSetter}
                     aboveSchema={field.children}
@@ -87,6 +74,8 @@ const TypeSelect = ({ field, label, aboveSchema, setAboveSchema, index }) => {
             )}
             {field.type === 'object' && (
                 <SchemaInput
+                    arrayDepth={arrayDepth}
+                    objectDepth={objectDepth - 1}
                     schema={field.children}
                     setSchema={childrenSetter}
                 />

@@ -1,0 +1,37 @@
+.input-object {
+    padding-left: 0rem;
+    /* border: 1px solid black; */
+    width: fit-content;
+}
+
+.rel {
+    position: relative;
+}
+
+.input-object::before {
+    content: '{';
+    display: inline-block;
+    font-size: 1.5rem;
+    top:-0.5rem;
+    position: absolute;
+    /* top: 2rem; */
+    /* margin-bottom: -2rem; */
+}
+
+.input-object::after {
+    content: '}';
+    font-size: 1.5rem;
+    position: absolute;
+    right: -1rem;
+    bottom: -0.2rem;
+}
+
+.object-label {
+    display: flex;
+}
+
+.label {
+    display: flex;
+    width: 80px;
+    justify-content: end;
+}

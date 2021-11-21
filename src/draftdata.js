@@ -2,29 +2,25 @@ const a = [
     {
         key: 'id',
         type: 'uuid',
-        value: '',
     },
     {
         key: 'title',
         type: 'string',
-        value: '',
     },
     {
         key: 'room',
         type: 'number',
-        value: Number,
     },
     {
-        key: 'igene',
+        key: 'igen-e?',
         type: 'boolean',
-        value: false,
     },
     {
         key: 'time',
         type: 'object',
         children: [
-            { key: 'hour', type: 'number', value: Number },
-            { key: 'min', type: 'number', value: Number },
+            { key: 'hour', type: 'number' },
+            { key: 'min', type: 'number' },
         ],
     },
     {
@@ -32,8 +28,8 @@ const a = [
         type: 'array',
         children: [
             {
+                key: 0,
                 type: 'string',
-                value: '',
             },
         ],
     },
@@ -42,11 +38,12 @@ const a = [
         type: 'array',
         children: [
             {
+                key: 0,
                 type: 'array',
                 children: [
                     {
+                        key: 0,
                         type: 'number',
-                        value: Number,
                     },
                 ],
             },
@@ -57,10 +54,11 @@ const a = [
         type: 'array',
         children: [
             {
+                key: 0,
                 type: 'object',
                 children: [
-                    { key: 'qwe', type: 'number', value: Number },
-                    { key: 'asd', type: 'string', value: '' },
+                    { key: 'qwe', type: 'number' },
+                    { key: 'asd', type: 'string' },
                 ],
             },
         ],

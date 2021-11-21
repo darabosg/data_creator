@@ -1,26 +1,25 @@
-import DataInput from './DataInput'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import DataHub from './DataHub'
+import initData from '../../helpers/initData'
 
-
-const Inputs = ({schema, setData}) => {
-// const [newData, setNewData] = useState({})
-
-
-// const makeInitialData = () => {
-// setNewData(
-
-// )
-// }
-
-// useEffect(() => {
+const Inputs = ({schema, setData, newData, setNewData }) => {
     
-
-// }, [])
+    const addToData = (e) => {
+        e.preventDefault()
+        setData(prev=>[...prev,newData])
+setNewData(initData(schema, newData))
+    }
 
     return (
         <div>
             <h1>Your inputs</h1>
-            <DataInput schema={schema}/>
+            <button onClick={()=>setNewData(initData(schema, newData))}>
+                Clear All
+            </button>
+            <form onSubmit={addToData}>
+                <DataHub data={newData} setData={setNewData} />
+                <input type='submit' value='Add to data array' />
+            </form>
         </div>
     )
 }

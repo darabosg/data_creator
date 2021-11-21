@@ -1,4 +1,4 @@
-.schema-input {
+.schema-input-container {
     /* margin: 5px; */
     margin-left: 1.5rem;
     /* border: 1px solid black; */
@@ -6,4 +6,8 @@
 
 .schema-object {
     border: 1px solid black;
+}
+
+.schema-input {
+    width:100px;
 }

@@ -1,0 +1,9 @@
+.output-area {
+    height: 80%;
+    width: 100%;
+    resize: none;
+}
+
+.output-container {
+height:100%;
+}

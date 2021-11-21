@@ -1,3 +1,4 @@
 proper keys at list rendering
-limit depth to 3-4??
+labels at inputs
 text area for long strings?? render when length//type: longstring??
+change schema do not render all inputs
