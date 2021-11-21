@@ -15,13 +15,9 @@ function App() {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        setNewData(initData(schema, newData))
+        setNewData(prev=>initData(schema, prev))
     }, [schema])
 
-    // useEffect(() => {
-    //     console.log(schema)
-    //     console.log(newData)
-    // }, [newData,schema])
 
     const switchInputs = () => {
         setDisplayInputs(!displayInputs)

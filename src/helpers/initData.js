@@ -27,7 +27,7 @@ const initData = (schema, newData) => {
 
     const isThereData = Boolean(newData)
 
-    console.log(isThereData)
+    // console.log(isThereData)
 
     const getValue = (item, data) => {
         if (isTypeChanged(item.type, data)) {
@@ -37,7 +37,7 @@ const initData = (schema, newData) => {
         }
     }
 
-    
+
 
     const makeInitialData = (schema, data) => {
         schema.forEach(item => {
