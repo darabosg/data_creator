@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import beautify from 'json-beautify'
 
-const WholeData = ({data}) => {
+const WholeData = ({data,setData}) => {
   const [lineLength, setLineLength] = useState(50)
 
 const copyData = () => {
     navigator.clipboard.writeText(beautify(data, null, 2, lineLength))
+}
+
+const clearData = () => {
+setData([])
 }
 
     return (
@@ -21,6 +25,7 @@ const copyData = () => {
                 onChange={e => setLineLength(Number(e.target.value))}
             />
             <button onClick={copyData}>Copy</button>
+            <button onClick={clearData}>Clear</button>
             <textarea
                 className='output-area'
                 readOnly

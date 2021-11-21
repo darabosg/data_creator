@@ -49,7 +49,7 @@ function App() {
 
                 <div className='flex-container'>
                     {displayOutput ? (
-                        <WholeData data={data} />
+                        <WholeData setData={setData} data={data} />
                     ) : (
                         <Output newData={newData} />
                     )}
