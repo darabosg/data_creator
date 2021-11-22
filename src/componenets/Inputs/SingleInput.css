@@ -1,3 +1,10 @@
 .single-input {
     width:260px;
 }
+
+.single-textarea {
+    width:260px;
+    resize: none;
+    padding:2px;
+    margin:1px;
+}

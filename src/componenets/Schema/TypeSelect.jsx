@@ -30,7 +30,7 @@ const TypeSelect = ({
                 replaceAt(aboveSchema, index, {
                     ...field,
                     type: e.target.value,
-                    children: [{ key: 'YOUR_KEY', type: 'string' }],
+                    children: [{ key: 'your_key', type: 'string' }],
                 })
             )
         } else {

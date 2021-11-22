@@ -13,6 +13,8 @@ const ObjectInputs = ({ data, setData }) => {
             {data && (
                 <div className='rel'>
                     <div className='input-object'>
+                        <fieldset>
+                            <legend>object</legend>
                         {Object.keys(data).map((dataKey, i) => {
                             return (
                                 <div key={i} className='object-label'>
@@ -29,7 +31,7 @@ const ObjectInputs = ({ data, setData }) => {
                                     />
                                 </div>
                             )
-                        })}
+                        })}</fieldset>
                     </div>
                 </div>
             )}

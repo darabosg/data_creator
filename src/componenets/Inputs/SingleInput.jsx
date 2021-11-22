@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './SingleInput.css'
 import getType from '../../helpers/getType'
 
 const SingleInput = ({ value, setData }) => {
+    const textInput = useRef()
+
     const change = e => {
         switch (getType(value)) {
             case 'number':
@@ -13,19 +15,44 @@ const SingleInput = ({ value, setData }) => {
                 break
             default:
                 setData(e.target.value)
+                textInput.current.focus()
                 break
+        }
+    }
+
+    const getRows = length => {
+        if (length === 0) {
+            return 1
+        } else {
+            let rows = Math.ceil(length / 33)
+            return rows < 7 ? rows : 6
         }
     }
 
     return (
         <div>
             {getType(value) === 'string' && (
-                <input
-                    className='single-input'
-                    value={value}
-                    type='text'
+                // <>
+                //     {value.length < 33 ? (
+                //         <input
+                //             ref={textInput}
+                //             className='single-input'
+                //             value={value}
+                //             type='text'
+                //             onChange={change}
+                //             // autoFocus
+                //         />
+                //     ) : (
+                <textarea
+                    ref={textInput}
+                    // autoFocus
+                    className='single-textarea'
+                    rows={getRows(value.length)}
                     onChange={change}
+                    value={value}
                 />
+                // )}
+                // </>
             )}
             {getType(value) === 'number' && (
                 <input

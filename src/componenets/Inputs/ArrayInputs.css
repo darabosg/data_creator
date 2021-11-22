@@ -1,25 +1,8 @@
 .input-array {
-    padding-left: 0.5rem;
-    /* border: 1px solid black; */
     width: fit-content;
 }
 
-.input-array::before {
-    content: '[';
-    display: inline-block;
-    font-size: 1.5rem;
-    top:-0.5rem;
-    left: 0rem;
-    position: absolute;
-    /* top: 2rem; */
-    /* margin-bottom: -2rem; */
-}
 
-.input-array::after {
-    content: ']';
-    font-size: 1.5rem;
-    position: absolute;
-    right: -1rem;
-    bottom: -0.2rem;
+.input-from-array {
+    display: flex;
 }
-

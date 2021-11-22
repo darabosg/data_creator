@@ -10,7 +10,7 @@ const SchemaInput = ({ schema, setSchema, objectDepth,arrayDepth }) => {
     }
 
     const addField = () => {
-        setSchema([...schema, { key: 'YOUR_KEY_'+(schema.length+1), type: 'string', value: '' }])
+        setSchema([...schema, { key: 'your_key_'+(schema.length+1), type: 'string', value: '' }])
     }
 
     const deleteField = index => {
@@ -20,30 +20,40 @@ const SchemaInput = ({ schema, setSchema, objectDepth,arrayDepth }) => {
 
     return (
         <div className='schema-object'>
-            {schema.map((field, i) => (
-                <div className='schema-input-container' key={field + i}>
-                    <button onClick={() => deleteField(i)}>---</button>
-                    <label htmlFor='key'>Key: </label>
-                    <input
-                        className='schema-input'
-                        type='text'
-                        id='key'
-                        name='key'
-                        value={field.key}
-                        onChange={e => changeKey(e)(i, field)}
-                    />
-                    <TypeSelect
-                        objectDepth={objectDepth}
-                        arrayDepth={arrayDepth}
-                        index={i}
-                        setAboveSchema={setSchema}
-                        aboveSchema={schema}
-                        field={field}
-                        label='Type: '
-                    />
-                </div>
-            ))}
-            <button onClick={addField}>Add</button>
+            <fieldset>
+                <legend>object</legend>
+                {schema.map((field, i) => (
+                    <div className='schema-input-container' key={field + i}>
+                        <button
+                            className='icon-button red'
+                            onClick={() => deleteField(i)}
+                        >
+                            -
+                        </button>
+                        <label htmlFor='key'>Key: </label>
+                        <input
+                            className='schema-input'
+                            type='text'
+                            id='key'
+                            name='key'
+                            value={field.key}
+                            onChange={e => changeKey(e)(i, field)}
+                        />
+                        <TypeSelect
+                            objectDepth={objectDepth}
+                            arrayDepth={arrayDepth}
+                            index={i}
+                            setAboveSchema={setSchema}
+                            aboveSchema={schema}
+                            field={field}
+                            label='Type: '
+                        />
+                    </div>
+                ))}
+                <button className='icon-button green' onClick={addField}>
+                    +
+                </button>
+            </fieldset>
         </div>
     )
 }

@@ -13,14 +13,36 @@ const ArrayInputs = ({ data, setData }) => {
         setData([...data, clear])
     }
 
+    const deleteArrayItem = (index) => {
+setData(data.filter((_,i)=>i!==index))
+    }
+
     return (
         <div className='rel'>
             <div className='input-array'>
-                {/* <InputLabel  of={getType(data[0])}/> */}
-                {data.map((item, i) => (
-                    <DataHub key={i} data={item} setData={childrenSetter(i)} />
-                ))}
-                <button className='add-to-array' onClick={addToArray}>+</button>
+                <fieldset>
+                    <legend>array</legend>
+                    {data.map((item, i) => (
+                        <div className='input-from-array'>
+                            <DataHub
+                                key={i}
+                                data={item}
+                                setData={childrenSetter(i)}
+                            />
+                            {i !== 0 && (
+                                <button
+                                    onClick={()=>deleteArrayItem(i)}
+                                    className='icon-button red'
+                                >
+                                    -
+                                </button>
+                            )}
+                        </div>
+                    ))}
+                    <button className='icon-button green' onClick={addToArray}>
+                        +
+                    </button>
+                </fieldset>
             </div>
         </div>
     )

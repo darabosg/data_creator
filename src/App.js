@@ -3,14 +3,16 @@ import React, { useState, useEffect } from 'react'
 import Schema from './componenets/Schema/Schema'
 import Inputs from './componenets/Inputs/Inputs'
 import Output from './componenets/Output/Output'
-import a from './draftdata'
-import WholeData from './componenets/WholeData/WholeData'
+// import a from './draftdata'
 import initData from './helpers/initData'
 
 function App() {
     const [displayInputs, setDisplayInputs] = useState(false)
     const [displayOutput, setDisplayOutput] = useState(false)
-    const [schema, setSchema] = useState(a)
+    const [schema, setSchema] = useState([
+        { key: 'id', type: 'uuid' },
+        { key: 'your_key_2', type: 'string' },
+    ])
     const [newData, setNewData] = useState(null)
     const [data, setData] = useState([])
 
@@ -49,9 +51,9 @@ function App() {
 
                 <div className='flex-container'>
                     {displayOutput ? (
-                        <WholeData setData={setData} data={data} />
+                        <Output setData={setData} data={data} />
                     ) : (
-                        <Output newData={newData} />
+                        <Output data={newData} />
                     )}
                     <button onClick={switchOutput}>
                         {displayOutput
