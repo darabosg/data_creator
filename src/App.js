@@ -3,7 +3,7 @@ import React from 'react'
 import Home from './pages/Home'
 import Creator from './pages/Creator'
 import Searcher from './pages/Searcher'
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { Route, HashRouter as Router, Routes } from 'react-router-dom'
 
 function App() {
     return (
