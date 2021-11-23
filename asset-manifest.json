@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/data_creator/static/css/main.1e735848.chunk.css",
-    "main.js": "/data_creator/static/js/main.b10c07ed.chunk.js",
-    "main.js.map": "/data_creator/static/js/main.b10c07ed.chunk.js.map",
+    "main.js": "/data_creator/static/js/main.28bfcb47.chunk.js",
+    "main.js.map": "/data_creator/static/js/main.28bfcb47.chunk.js.map",
     "runtime-main.js": "/data_creator/static/js/runtime-main.2e2b7141.js",
     "runtime-main.js.map": "/data_creator/static/js/runtime-main.2e2b7141.js.map",
-    "static/js/2.461a49ae.chunk.js": "/data_creator/static/js/2.461a49ae.chunk.js",
-    "static/js/2.461a49ae.chunk.js.map": "/data_creator/static/js/2.461a49ae.chunk.js.map",
+    "static/js/2.943d30f3.chunk.js": "/data_creator/static/js/2.943d30f3.chunk.js",
+    "static/js/2.943d30f3.chunk.js.map": "/data_creator/static/js/2.943d30f3.chunk.js.map",
     "index.html": "/data_creator/index.html",
     "static/css/main.1e735848.chunk.css.map": "/data_creator/static/css/main.1e735848.chunk.css.map",
-    "static/js/2.461a49ae.chunk.js.LICENSE.txt": "/data_creator/static/js/2.461a49ae.chunk.js.LICENSE.txt"
+    "static/js/2.943d30f3.chunk.js.LICENSE.txt": "/data_creator/static/js/2.943d30f3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2e2b7141.js",
-    "static/js/2.461a49ae.chunk.js",
+    "static/js/2.943d30f3.chunk.js",
     "static/css/main.1e735848.chunk.css",
-    "static/js/main.b10c07ed.chunk.js"
+    "static/js/main.28bfcb47.chunk.js"
   ]
 }
