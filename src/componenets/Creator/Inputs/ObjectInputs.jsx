@@ -1,4 +1,4 @@
-import getType from '../../helpers/getType'
+import getType from '../../../helpers/getType'
 import React from 'react'
 import DataHub from './DataHub'
 import InputLabel from './InputLabel'

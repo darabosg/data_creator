@@ -1,5 +1,5 @@
 import React from 'react'
-import getType from '../../helpers/getType'
+import getType from '../../../helpers/getType'
 import ArrayInputs from './ArrayInputs'
 import ObjectInputs from './ObjectInputs'
 import SingleInput from './SingleInput'

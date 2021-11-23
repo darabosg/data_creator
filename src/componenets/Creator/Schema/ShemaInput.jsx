@@ -1,6 +1,6 @@
 import './SchemaInput.css'
 import TypeSelect from './TypeSelect'
-import replaceAt from '../../helpers/replaceAt'
+import replaceAt from '../../../helpers/replaceAt'
 import React from 'react'
 
 const SchemaInput = ({ schema, setSchema, objectDepth,arrayDepth }) => {

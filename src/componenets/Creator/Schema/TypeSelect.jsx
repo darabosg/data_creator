@@ -1,4 +1,4 @@
-import replaceAt from '../../helpers/replaceAt'
+import replaceAt from '../../../helpers/replaceAt'
 import React from 'react'
 import SchemaInput from './ShemaInput'
 

@@ -1,7 +1,7 @@
 import React from 'react'
-import replaceAt from '../../helpers/replaceAt'
+import replaceAt from '../../../helpers/replaceAt'
 import DataHub from './DataHub'
-import clearData from '../../helpers/clearData'
+import clearData from '../../../helpers/clearData'
 import './ArrayInputs.css'
 
 const ArrayInputs = ({ data, setData }) => {

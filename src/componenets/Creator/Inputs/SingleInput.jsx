@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import './SingleInput.css'
-import getType from '../../helpers/getType'
+import getType from '../../../helpers/getType'
 
 const SingleInput = ({ value, setData }) => {
     const textInput = useRef()
