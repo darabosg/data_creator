@@ -16,9 +16,9 @@ const Inputs = ({ schema, setData, newData, setNewData }) => {
             <button onClick={() => setNewData(initData(schema, newData))}>
                 Clear All
             </button>
-            <form id='input-form' onSubmit={addToData}>
+            {/* <form id='input-form' onSubmit={addToData}> */}
                 <DataHub data={newData} setData={setNewData} />
-            </form>
+            {/* </form> */}
                 <button onClick={addToData}>Add to data array</button>
         </div>
     )
