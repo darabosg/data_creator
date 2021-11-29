@@ -16,7 +16,7 @@ const Img = ({ url }) => {
                 // setImg(URL.createObjectURL(new Blob([response.data])))
             })
             .catch(err => console.error(err))
-    }, [])
+    }, [url])
 
     useEffect(() => {
         console.log(img)

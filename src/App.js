@@ -2,7 +2,7 @@ import './App.css'
 import React from 'react'
 import Home from './pages/Home'
 import Creator from './pages/Creator'
-import Searcher from './pages/Searcher'
+// import Searcher from './pages/Searcher'
 import { Route, HashRouter as Router, Routes } from 'react-router-dom'
 
 function App() {
